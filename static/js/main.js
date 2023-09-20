@@ -445,8 +445,11 @@ const showStats = () => {
 }
 
 // Filepath for map (lat, lon coords) json and data (stats, x-y vals) json 
+//TODO: change map_url 
 const map_url = './static/data/data6.json';
   
+
+//TODO: comment out colors, make the points circles and regular solid color
 function getColor(sig) {
     const colors = [
         {
