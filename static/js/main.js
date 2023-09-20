@@ -1,4 +1,9 @@
-const center = [13.5435056,144.7478083];
+//TODO: change center to Saipan
+
+//center of guam
+// const center = [13.5435056,144.7478083];
+//center of saipan
+const center = [15.187953368844124,145.71065791414713];
 
 // Creates Leaflet map 
 const map = L.map('map', {
@@ -10,6 +15,13 @@ const map = L.map('map', {
     //     position: 'topleft'
     // }
 })
+
+// TODO: use to get center of saipan
+    map.addEventListener("click", function (event) {
+        console.log(map.getCenter());
+
+        return false;
+    });
 
 const baseLayersZoom = 19;
 
