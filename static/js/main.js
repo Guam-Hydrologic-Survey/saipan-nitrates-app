@@ -1,5 +1,3 @@
-//TODO: change center to Saipan
-
 //center of guam
 // const center = [13.5435056,144.7478083];
 //center of saipan
@@ -16,7 +14,7 @@ const map = L.map('map', {
     // }
 })
 
-// TODO: use to get center of saipan
+// TODO: use to get center of saipan, comment out later
     map.addEventListener("click", function (event) {
         console.log(map.getCenter());
 
@@ -25,7 +23,8 @@ const map = L.map('map', {
 
 const baseLayersZoom = 19;
 
-// Open Street Map layer 
+// Open Street Map layer
+// TODO: may need to edit attribution
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: baseLayersZoom, 
     attribution: '© OpenStreetMap | DKValerio, MWZapata, JBulaklak, NCHabana 2022'
