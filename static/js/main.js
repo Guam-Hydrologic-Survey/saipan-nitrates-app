@@ -76,7 +76,7 @@ mapTitle.onAdd =  function(map) {
 //TODO: Add Saipan MAppFx Title
 // mapTitle.addTo(map);
 
-// var sidebar = L.control.sidebar('sidebar').addTo(map);
+// var sidebar = L.control.sidebar('sidebar').addTo(map); //was always commented out
 
 L.control.fullscreen({
     position: 'bottomright',
