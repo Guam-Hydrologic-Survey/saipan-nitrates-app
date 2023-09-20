@@ -1,6 +1,6 @@
-<h1 align="center">MAppFx: NGLA Well Nitrates</h1>
+<h1 align="center">Saipan MAppFx</h1>
 
-A map of nitrate concentrations in Guam wells based on a [nitrate analysis](https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/) research project by Jezreelyn Bulaklak. 
+<!-- A map of nitrate concentrations in Guam wells based on a [nitrate analysis](https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/) research project by Jezreelyn Bulaklak. 
 
 <br> 
 
@@ -30,4 +30,4 @@ Data originated from Guam Waterworks Authority as organized and transferred thro
 
 ## References
 - McDonald, M. Q. (2002) _Nitrate-Nitrogen Concentrations in the Northern Guam Lens and Potential Nitrogen Sources._ WERI Technical Report 95, WERI UOG, Mangilao, Guam.
-- Bulaklak, J. Y., Habana, N. C., and J. W. Jenson (2020) _WERI Scientific Advisory Paper, Nitrate Occurrence and Trends in the Northern Guam Lens Aquifer: Observations and Findings to Date._ WERI UOG. Made available through the Guam Daily Post article, WERI Advisory Paper on Bill 404.
+- Bulaklak, J. Y., Habana, N. C., and J. W. Jenson (2020) _WERI Scientific Advisory Paper, Nitrate Occurrence and Trends in the Northern Guam Lens Aquifer: Observations and Findings to Date._ WERI UOG. Made available through the Guam Daily Post article, WERI Advisory Paper on Bill 404. -->
