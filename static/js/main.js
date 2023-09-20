@@ -73,7 +73,8 @@ mapTitle.onAdd =  function(map) {
     return this._div;
 };
 
-mapTitle.addTo(map);
+//TODO: Add Saipan MAppFx Title
+// mapTitle.addTo(map);
 
 // var sidebar = L.control.sidebar('sidebar').addTo(map);
 
