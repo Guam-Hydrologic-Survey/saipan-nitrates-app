@@ -596,8 +596,8 @@ fetch(map_url)
                     radius: 8, 
                     fillColor: getColor(4),
                     weight: 1,
-                    fillOpacity: 1.0,
-                    color: "black",
+                    fillOpacity: 1,
+                    color: "grey",
                     opacity: 1.0,
                 })
             }, 
