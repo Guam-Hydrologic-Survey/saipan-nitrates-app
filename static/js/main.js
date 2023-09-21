@@ -449,7 +449,6 @@ const showStats = () => {
 const map_url = './static/data/data6.json';
   
 
-//TODO: comment out colors, make the points circles and regular solid color
 function getColor(sig) {
     const colors = [
         {
@@ -535,7 +534,7 @@ fetch(map_url)
         //         var iconStyle = L.divIcon({
         //             html: `
         //             <svg height="100%" width="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        //                 <g fill="${getColor(4)}" stroke="black">
+        //                 <g fill="${getColor(2)}" stroke="black">
         //                     <path stroke-width="5" d="M50 0 L0 100 L100 100 Z"></path>
         //                 </g>
         //             </svg>
@@ -556,7 +555,7 @@ fetch(map_url)
         //         var iconStyle = L.divIcon({
         //             html: `
         //             <svg height="100%" width="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        //                 <g fill="${getColor(4)}" stroke="black">
+        //                 <g fill="${getColor(2)}" stroke="black">
         //                     <path stroke-width="5" d="M0 0 L50 100 L100 0 Z"></path>
         //                 </g>
         //             </svg>
@@ -576,7 +575,7 @@ fetch(map_url)
         //     pointToLayer: function(feature, latlng) {
         //         return L.circleMarker(latlng, {
         //             radius: 8, 
-        //             fillColor: getColor(4),
+        //             fillColor: getColor(2),
         //             weight: 1,
         //             fillOpacity: 1.0,
         //             color: "black",
@@ -594,10 +593,10 @@ fetch(map_url)
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng, {
                     radius: 8, 
-                    fillColor: getColor(4),
+                    fillColor: getColor(2),
                     weight: 1,
                     fillOpacity: 1,
-                    color: "grey",
+                    color: "black",
                     opacity: 1.0,
                 })
             }, 
