@@ -1,7 +1,7 @@
 //center of guam
-// const center = [13.5435056,144.7478083];
+const center = [13.5435056,144.7478083];
 //center of saipan
-const center = [15.187953368844124,145.71065791414713];
+// const center = [15.187953368844124,145.71065791414713];
 
 // Creates Leaflet map 
 const map = L.map('map', {
@@ -527,52 +527,70 @@ fetch(map_url)
             
         }
 
-        const sigIncWells = L.geoJSON(geojson, {
-            filter: function(feature, layer) {
-                return (feature.properties.sig) == 1;
-            }, 
-            pointToLayer: function(feature, latlng) {
-                var iconStyle = L.divIcon({
-                    html: `
-                    <svg height="100%" width="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="${getColor(4)}" stroke="black">
-                            <path stroke-width="5" d="M50 0 L0 100 L100 100 Z"></path>
-                        </g>
-                    </svg>
-                    `,
-                    className: "",
-                    iconSize: [18, 18]
-                });
-                return L.marker(latlng, {icon: iconStyle});
-            }, 
-            onEachFeature: getWellInfo}).addTo(map);
-        layerControl.addOverlay(sigIncWells, "Significantly Increasing");
+        // const sigIncWells = L.geoJSON(geojson, {
+        //     filter: function(feature, layer) {
+        //         return (feature.properties.sig) == 1;
+        //     }, 
+        //     pointToLayer: function(feature, latlng) {
+        //         var iconStyle = L.divIcon({
+        //             html: `
+        //             <svg height="100%" width="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        //                 <g fill="${getColor(4)}" stroke="black">
+        //                     <path stroke-width="5" d="M50 0 L0 100 L100 100 Z"></path>
+        //                 </g>
+        //             </svg>
+        //             `,
+        //             className: "",
+        //             iconSize: [18, 18]
+        //         });
+        //         return L.marker(latlng, {icon: iconStyle});
+        //     }, 
+        //     onEachFeature: getWellInfo}).addTo(map);
+        // layerControl.addOverlay(sigIncWells, "Significantly Increasing");
 
-        const sigDecWells = L.geoJSON(geojson, {
-            filter: function(feature, layer) {
-                return (feature.properties.sig) == -1;
-            }, 
-            pointToLayer: function(feature, latlng) {
-                var iconStyle = L.divIcon({
-                    html: `
-                    <svg height="100%" width="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="${getColor(4)}" stroke="black">
-                            <path stroke-width="5" d="M0 0 L50 100 L100 0 Z"></path>
-                        </g>
-                    </svg>
-                    `,
-                    className: "",
-                    iconSize: [18, 18]
-                });
-                return L.marker(latlng, {icon: iconStyle});
-            }, 
-            onEachFeature: getWellInfo}).addTo(map);
-        layerControl.addOverlay(sigDecWells, "Significantly Decreasing");
+        // const sigDecWells = L.geoJSON(geojson, {
+        //     filter: function(feature, layer) {
+        //         return (feature.properties.sig) == -1;
+        //     }, 
+        //     pointToLayer: function(feature, latlng) {
+        //         var iconStyle = L.divIcon({
+        //             html: `
+        //             <svg height="100%" width="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        //                 <g fill="${getColor(4)}" stroke="black">
+        //                     <path stroke-width="5" d="M0 0 L50 100 L100 0 Z"></path>
+        //                 </g>
+        //             </svg>
+        //             `,
+        //             className: "",
+        //             iconSize: [18, 18]
+        //         });
+        //         return L.marker(latlng, {icon: iconStyle});
+        //     }, 
+        //     onEachFeature: getWellInfo}).addTo(map);
+        // layerControl.addOverlay(sigDecWells, "Significantly Decreasing");
         
-        const insWells = L.geoJSON(geojson, {
-            filter: function(feature, layer) {
-                return (feature.properties.sig) == 0;
-            }, 
+        // const insWells = L.geoJSON(geojson, {
+        //     filter: function(feature, layer) {
+        //         return (feature.properties.sig) == 0;
+        //     }, 
+        //     pointToLayer: function(feature, latlng) {
+        //         return L.circleMarker(latlng, {
+        //             radius: 8, 
+        //             fillColor: getColor(4),
+        //             weight: 1,
+        //             fillOpacity: 1.0,
+        //             color: "black",
+        //             opacity: 1.0,
+        //         })
+        //     }, 
+        //     onEachFeature: getWellInfo}).addTo(map);
+        // layerControl.addOverlay(insWells, "Insignificant");
+
+        //TODO: Saipan Layer of Wells
+        const sampleWells = L.geoJSON(geojson, {
+            // filter: function(feature, layer) {
+            //     return (feature.properties.sig) == 0;
+            // }, 
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng, {
                     radius: 8, 
@@ -584,9 +602,10 @@ fetch(map_url)
                 })
             }, 
             onEachFeature: getWellInfo}).addTo(map);
-        layerControl.addOverlay(insWells, "Insignificant");
+        layerControl.addOverlay(sampleWells, "Sample Wells");
 
-        const mapJson = L.layerGroup([sigIncWells, sigDecWells, insWells]).addTo(map);
+        // const mapJson = L.layerGroup([sigIncWells, sigDecWells, insWells]).addTo(map);
+        const mapJson = L.layerGroup([sampleWells]).addTo(map);
         
         // Control search  
         const searchControl = new L.Control.Search({ 
