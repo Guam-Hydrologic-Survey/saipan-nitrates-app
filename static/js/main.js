@@ -292,7 +292,7 @@ const showStats = () => {
         }
     }
 
-    //TODO: change p text to saipan properties in sampleWells.json
+    //TODO: get the right xvalues and yvalues for sampleWells.json value
     document.getElementById("stats-sidebar").innerHTML =
         `
             <div>
@@ -334,15 +334,16 @@ const showStats = () => {
                                 <p class="stats-text-full">Facility ID</p>
                                 <p class="stats-text-full">StreetNum ID</p>
                                 <p class="stats-text-full">PWSS Name</p>
+                                <br>
                                 <p class="stats-text-full">Source Type</p>
                                 <p class="stats-text-full">Assigned Capacity</p>
                             </div>
                             <div class="stats-col">                
-                                <p class="stats-num-full">${getStats.rcrit.toFixed(3)}</p>
-                                <p class="stats-num-full">${twoType[0]}</p>              
-                                <p class="stats-num-full">${getStats.rcalc_new.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.EA.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.EA_X2.toFixed(3)}</p>
+                                <p class="stats-num-full">${getStats.facility_ID}</p>
+                                <p class="stats-num-full">${getStats.streetNum_ID}</p>              
+                                <p class="stats-num-full">${getStats.pwss_name}</p>
+                                <p class="stats-num-full">${getStats.source_type}</p>
+                                <p class="stats-num-full">${getStats.assigned_capacity}</p>
                             </div>
                         </div>
                     </div>
