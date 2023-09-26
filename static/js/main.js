@@ -298,7 +298,7 @@ const showStats = () => {
             <div>
                 <h4>Well ${getStats.name}</h4>
                 <p class="stats-location">${getStats.lat.toFixed(3)}, ${getStats.lon.toFixed(3)}</p>
-                <p class="stats-location">${getStats.facility_name} Facility Name</p>
+                <p class="stats-location">Facility Name: ${getStats.facility_name}</p>
                 <hr/>
             </div>
 
@@ -307,11 +307,6 @@ const showStats = () => {
                     <p class="stats-text">Average</p>
                     <p class="stats-text">Min</p>
                     <p class="stats-text">Max</p>
-                    <p class="stats-text">Mode</p>
-                    <p class="stats-text">Slope</p>
-                    <p class="stats-text">Intercept</p>
-                    <p class="stats-text">Standard Deviation</p>
-                    <p class="stats-text">Degrees of Freedom</p>
                     <br>
                     <br>
                 </div>
@@ -319,11 +314,6 @@ const showStats = () => {
                     <p class="stats-num">${getStats.average.toFixed(3)}</p>
                     <p class="stats-num">${getStats.min}</p>
                     <p class="stats-num">${getStats.max}</p>
-                    <p class="stats-num">${getStats.mode}</p>
-                    <p class="stats-num">${getStats.slope.toFixed(6)}</p>
-                    <p class="stats-num">${getStats.intercept.toFixed(3)}</p>
-                    <p class="stats-num">${getStats.std_dev.toFixed(3)}</p>
-                    <p class="stats-num">${getStats.deg_of_free}</p>
                     <br>
                 </div>
             </div>
