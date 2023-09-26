@@ -292,12 +292,13 @@ const showStats = () => {
         }
     }
 
+    //TODO: change p text to saipan properties in sampleWells.json
     document.getElementById("stats-sidebar").innerHTML =
         `
             <div>
                 <h4>Well ${getStats.name}</h4>
                 <p class="stats-location">${getStats.lat.toFixed(3)}, ${getStats.lon.toFixed(3)}</p>
-                <p class="stats-location">${getStats.basin} Basin</p>
+                <p class="stats-location">${getStats.facility_name} Facility Name</p>
                 <hr/>
             </div>
 
