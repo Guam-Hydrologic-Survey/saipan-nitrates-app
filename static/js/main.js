@@ -509,7 +509,7 @@ fetch(map_url)
                 <strong>Well</strong>: ${feature.properties.name} 
                 <br><strong>Lat:</strong> ${feature.properties.lat.toFixed(3)} 
                 <br><strong>Lon:</strong> ${feature.properties.lon.toFixed(3)}
-                <br><strong>Basin:</strong> ${feature.properties.basin}
+                <br><strong>Facility Name:</strong> ${feature.properties.facility_name}
                 <br><br>
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" onclick="showStats()" id="marker-more-info">More Info</button>
