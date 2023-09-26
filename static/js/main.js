@@ -331,23 +331,11 @@ const showStats = () => {
                     <div class="accordion-body">
                         <div class="stats-row">
                             <div class="stats-col">
-                                <p class="stats-text-full">Rcrit</p>
-                                <p class="stats-text-full">Rcalc Mo</p>
-                                <p class="stats-text-full">Rcalc New</p>
-                                <p class="stats-text-full">EA</p>
-                                <p class="stats-text-full">EA X<sup>2</sup></p>
-                                <p class="stats-text-full">Base Year</p>
-                                <p class="stats-text-full">End Year</p>
-                                <p class="stats-text-full">Top 1</p>
-                                <p class="stats-text-full">Top 2</p>
-                                <p class="stats-text-full">Bottom 1</p>
-                                <p class="stats-text-full">Bottom 2</p>
-                                <p class="stats-text-full">Increase in 10 Years</p>
-                                <p class="stats-text-full">Increase in 20 Years</p>
-                                <p class="stats-text-full">1ppm in X Years</p>
-                                <p class="stats-text-full">Significance</p>
-                                <p class="stats-text-full">MoP</p>
-                                <p class="stats-text-full">Annual Frequency</p>
+                                <p class="stats-text-full">Facility ID</p>
+                                <p class="stats-text-full">StreetNum ID</p>
+                                <p class="stats-text-full">PWSS Name</p>
+                                <p class="stats-text-full">Source Type</p>
+                                <p class="stats-text-full">Assigned Capacity</p>
                             </div>
                             <div class="stats-col">                
                                 <p class="stats-num-full">${getStats.rcrit.toFixed(3)}</p>
@@ -355,18 +343,6 @@ const showStats = () => {
                                 <p class="stats-num-full">${getStats.rcalc_new.toFixed(3)}</p>
                                 <p class="stats-num-full">${getStats.EA.toFixed(3)}</p>
                                 <p class="stats-num-full">${getStats.EA_X2.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.base_year}</p>
-                                <p class="stats-num-full">${getStats.end_year}</p>
-                                <p class="stats-num-full">${getStats.top1.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.top2.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.bottom1.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.bottom2.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.inc_10_Yrs.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.inc_20_Yrs.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.x_yrs_1ppm.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.sig}</p>
-                                <p class="stats-num-full">${getStats.MoP}</p>
-                                <p class="stats-num-full">${twoType[1]}</p>
                             </div>
                         </div>
                     </div>
