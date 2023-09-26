@@ -1,7 +1,7 @@
 //center of guam
-const center = [13.5435056,144.7478083];
+// const center = [13.5435056,144.7478083];
 //center of saipan
-// const center = [15.187953368844124,145.71065791414713];
+const center = [15.187953368844124,145.71065791414713];
 
 // Creates Leaflet map 
 const map = L.map('map', {
