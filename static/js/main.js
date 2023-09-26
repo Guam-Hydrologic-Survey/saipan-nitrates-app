@@ -416,7 +416,8 @@ const showStats = () => {
 
 // Filepath for map (lat, lon coords) json and data (stats, x-y vals) json 
 //TODO: change map_url 
-const map_url = './static/data/sampleWells.json';
+// const map_url = './static/data/sampleWells.json';
+const map_url = './static/data/saipanWells.json';
   
 
 function getColor(sig) {
