@@ -307,6 +307,7 @@ const showStats = () => {
                     <p class="stats-text">Average</p>
                     <p class="stats-text">Min</p>
                     <p class="stats-text">Max</p>
+                    <p class="stats-text">N-Data</p>
                     <br>
                     <br>
                 </div>
@@ -314,6 +315,7 @@ const showStats = () => {
                     <p class="stats-num">${getStats.average.toFixed(3)}</p>
                     <p class="stats-num">${getStats.min}</p>
                     <p class="stats-num">${getStats.max}</p>
+                    <p class="stats-num">${getStats.n_data}</p>
                     <br>
                 </div>
             </div>
