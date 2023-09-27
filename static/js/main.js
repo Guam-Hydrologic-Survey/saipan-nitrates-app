@@ -1,7 +1,7 @@
 //center of guam
-const center = [13.5435056,144.7478083];
+// const center = [13.5435056,144.7478083];
 //center of saipan
-// const center = [15.187953368844124,145.71065791414713];
+const center = [15.187953368844124,145.71065791414713];
 
 // Creates Leaflet map 
 const map = L.map('map', {
@@ -292,12 +292,13 @@ const showStats = () => {
         }
     }
 
+    //TODO: get the right xvalues and yvalues for sampleWells.json value
     document.getElementById("stats-sidebar").innerHTML =
         `
             <div>
                 <h4>Well ${getStats.name}</h4>
                 <p class="stats-location">${getStats.lat.toFixed(3)}, ${getStats.lon.toFixed(3)}</p>
-                <p class="stats-location">${getStats.basin} Basin</p>
+                <p class="stats-location">Facility Name: ${getStats.facility_name}</p>
                 <hr/>
             </div>
 
@@ -306,11 +307,7 @@ const showStats = () => {
                     <p class="stats-text">Average</p>
                     <p class="stats-text">Min</p>
                     <p class="stats-text">Max</p>
-                    <p class="stats-text">Mode</p>
-                    <p class="stats-text">Slope</p>
-                    <p class="stats-text">Intercept</p>
-                    <p class="stats-text">Standard Deviation</p>
-                    <p class="stats-text">Degrees of Freedom</p>
+                    <p class="stats-text">N-Data</p>
                     <br>
                     <br>
                 </div>
@@ -318,11 +315,7 @@ const showStats = () => {
                     <p class="stats-num">${getStats.average.toFixed(3)}</p>
                     <p class="stats-num">${getStats.min}</p>
                     <p class="stats-num">${getStats.max}</p>
-                    <p class="stats-num">${getStats.mode}</p>
-                    <p class="stats-num">${getStats.slope.toFixed(6)}</p>
-                    <p class="stats-num">${getStats.intercept.toFixed(3)}</p>
-                    <p class="stats-num">${getStats.std_dev.toFixed(3)}</p>
-                    <p class="stats-num">${getStats.deg_of_free}</p>
+                    <p class="stats-num">${getStats.n_data}</p>
                     <br>
                 </div>
             </div>
@@ -338,42 +331,19 @@ const showStats = () => {
                     <div class="accordion-body">
                         <div class="stats-row">
                             <div class="stats-col">
-                                <p class="stats-text-full">Rcrit</p>
-                                <p class="stats-text-full">Rcalc Mo</p>
-                                <p class="stats-text-full">Rcalc New</p>
-                                <p class="stats-text-full">EA</p>
-                                <p class="stats-text-full">EA X<sup>2</sup></p>
-                                <p class="stats-text-full">Base Year</p>
-                                <p class="stats-text-full">End Year</p>
-                                <p class="stats-text-full">Top 1</p>
-                                <p class="stats-text-full">Top 2</p>
-                                <p class="stats-text-full">Bottom 1</p>
-                                <p class="stats-text-full">Bottom 2</p>
-                                <p class="stats-text-full">Increase in 10 Years</p>
-                                <p class="stats-text-full">Increase in 20 Years</p>
-                                <p class="stats-text-full">1ppm in X Years</p>
-                                <p class="stats-text-full">Significance</p>
-                                <p class="stats-text-full">MoP</p>
-                                <p class="stats-text-full">Annual Frequency</p>
+                                <p class="stats-text-full">Facility ID</p>
+                                <p class="stats-text-full">StreetNum ID</p>
+                                <p class="stats-text-full">PWSS Name</p>
+                                <br>
+                                <p class="stats-text-full">Source Type</p>
+                                <p class="stats-text-full">Assigned Capacity</p>
                             </div>
                             <div class="stats-col">                
-                                <p class="stats-num-full">${getStats.rcrit.toFixed(3)}</p>
-                                <p class="stats-num-full">${twoType[0]}</p>              
-                                <p class="stats-num-full">${getStats.rcalc_new.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.EA.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.EA_X2.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.base_year}</p>
-                                <p class="stats-num-full">${getStats.end_year}</p>
-                                <p class="stats-num-full">${getStats.top1.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.top2.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.bottom1.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.bottom2.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.inc_10_Yrs.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.inc_20_Yrs.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.x_yrs_1ppm.toFixed(3)}</p>
-                                <p class="stats-num-full">${getStats.sig}</p>
-                                <p class="stats-num-full">${getStats.MoP}</p>
-                                <p class="stats-num-full">${twoType[1]}</p>
+                                <p class="stats-num-full">${getStats.facility_ID}</p>
+                                <p class="stats-num-full">${getStats.streetNum_ID}</p>              
+                                <p class="stats-num-full">${getStats.pwss_name}</p>
+                                <p class="stats-num-full">${getStats.source_type}</p>
+                                <p class="stats-num-full">${getStats.assigned_capacity}</p>
                             </div>
                         </div>
                     </div>
@@ -446,7 +416,8 @@ const showStats = () => {
 
 // Filepath for map (lat, lon coords) json and data (stats, x-y vals) json 
 //TODO: change map_url 
-const map_url = './static/data/sampleWells.json';
+// const map_url = './static/data/sampleWells.json';
+const map_url = './static/data/saipanWells.json';
   
 
 function getColor(sig) {
@@ -509,7 +480,7 @@ fetch(map_url)
                 <strong>Well</strong>: ${feature.properties.name} 
                 <br><strong>Lat:</strong> ${feature.properties.lat.toFixed(3)} 
                 <br><strong>Lon:</strong> ${feature.properties.lon.toFixed(3)}
-                <br><strong>Basin:</strong> ${feature.properties.basin}
+                <br><strong>Facility Name:</strong> ${feature.properties.facility_name}
                 <br><br>
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" onclick="showStats()" id="marker-more-info">More Info</button>
