@@ -342,6 +342,7 @@ const showStats = () => {
                                 <p class="stats-num-full">${getStats.facility_ID}</p>
                                 <p class="stats-num-full">${getStats.streetNum_ID}</p>              
                                 <p class="stats-num-full">${getStats.pwss_name}</p>
+                                <br>
                                 <p class="stats-num-full">${getStats.source_type}</p>
                                 <p class="stats-num-full">${getStats.assigned_capacity}</p>
                             </div>
