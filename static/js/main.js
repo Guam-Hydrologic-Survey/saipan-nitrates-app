@@ -312,9 +312,9 @@ const showStats = () => {
                     <br>
                 </div>
                 <div class="stats-col">
-                    <p class="stats-num">${getStats.average.toFixed(3)}</p>
-                    <p class="stats-num">${getStats.min}</p>
-                    <p class="stats-num">${getStats.max}</p>
+                    <p class="stats-num">${getStats.average.toFixed(2)}</p>
+                    <p class="stats-num">${getStats.min.toFixed(2)}</p>
+                    <p class="stats-num">${getStats.max.toFixed(2)}</p>
                     <p class="stats-num">${getStats.n_data}</p>
                     <br>
                 </div>
