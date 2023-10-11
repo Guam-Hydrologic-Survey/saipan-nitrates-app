@@ -312,9 +312,9 @@ const showStats = () => {
                     <br>
                 </div>
                 <div class="stats-col">
-                    <p class="stats-num">${getStats.average.toFixed(3)}</p>
-                    <p class="stats-num">${getStats.min}</p>
-                    <p class="stats-num">${getStats.max}</p>
+                    <p class="stats-num">${getStats.average.toFixed(2)}</p>
+                    <p class="stats-num">${getStats.min.toFixed(2)}</p>
+                    <p class="stats-num">${getStats.max.toFixed(2)}</p>
                     <p class="stats-num">${getStats.n_data}</p>
                     <br>
                 </div>
@@ -334,7 +334,7 @@ const showStats = () => {
                                 <p class="stats-text-full">Facility ID</p>
                                 <p class="stats-text-full">StreetNum ID</p>
                                 <p class="stats-text-full">PWSS Name</p>
-                                <br>
+                               
                                 <p class="stats-text-full">Source Type</p>
                                 <p class="stats-text-full">Assigned Capacity</p>
                             </div>
@@ -342,6 +342,7 @@ const showStats = () => {
                                 <p class="stats-num-full">${getStats.facility_ID}</p>
                                 <p class="stats-num-full">${getStats.streetNum_ID}</p>              
                                 <p class="stats-num-full">${getStats.pwss_name}</p>
+                            
                                 <p class="stats-num-full">${getStats.source_type}</p>
                                 <p class="stats-num-full">${getStats.assigned_capacity}</p>
                             </div>
@@ -600,9 +601,16 @@ fetch(map_url)
             hideMarkerOnCollapse: true,
             autoCollapseTime: 1200,
         }); 
-
+        // On click event on the points
+            // Sends data for clicked item to global variable plotData 
+            // layer.on('click', pt => {
+            //     plotData = pt.target.feature.properties;
+            //     getStats = pt.target.feature.properties;
+            // })
         searchControl.on("search:locationfound", function(e) { 
             e.layer.openPopup(); 
+            plotData = e.layer.feature.properties;
+            getStats = e.layer.feature.properties;
         }); 
         map.addControl(searchControl);
     })
