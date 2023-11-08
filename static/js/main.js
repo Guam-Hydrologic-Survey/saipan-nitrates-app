@@ -78,12 +78,13 @@ mapTitle.onAdd =  function(map) {
 
 // var sidebar = L.control.sidebar('sidebar').addTo(map); //was always commented out
 
-L.control.fullscreen({
-    position: 'bottomright',
-    title: 'Toggle fullscreen mode',
-    titleCancel: 'Exit fullscreen mode',
-    forceSeparateButton: false,
-}).addTo(map);
+// TODO: fix fullscreen
+// L.control.fullscreen({
+//     position: 'bottomright',
+//     title: 'Toggle fullscreen mode',
+//     titleCancel: 'Exit fullscreen mode',
+//     forceSeparateButton: false,
+// }).addTo(map);
 
 L.control.zoom({
     // options: topleft, topright, bottomleft, bottomright
