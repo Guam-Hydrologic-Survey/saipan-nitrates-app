@@ -13,6 +13,7 @@ const map = L.map('map', {
     //     position: 'topleft'
     // }
 })
+const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: MWZapata, DKValerio, NCHabana 2023`;
 
 // TODO: use to get center of saipan, comment out later
     map.addEventListener("click", function (event) {
@@ -27,7 +28,7 @@ const baseLayersZoom = 19;
 // TODO: may need to edit attribution
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: baseLayersZoom, 
-    attribution: '© OpenStreetMap | DKValerio, MWZapata, JBulaklak, NCHabana 2022'
+    attribution: '© OpenStreetMap' + devs,
 }).addTo(map)
 
 // ESRI World Street Map 
