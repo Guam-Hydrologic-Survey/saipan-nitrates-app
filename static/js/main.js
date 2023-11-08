@@ -574,7 +574,7 @@ fetch(map_url)
                 })
             }, 
             onEachFeature: getWellInfo}).addTo(map);
-        layerControl.addOverlay(sampleWells, "Sample Wells");
+        layerControl.addOverlay(sampleWells, "CNMI Wells");
 
         // const mapJson = L.layerGroup([sigIncWells, sigDecWells, insWells]).addTo(map);
         const mapJson = L.layerGroup([sampleWells]).addTo(map);
