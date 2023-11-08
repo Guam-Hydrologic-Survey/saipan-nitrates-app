@@ -70,12 +70,11 @@ const mapTitle = L.control({position: 'topleft'});
 
 mapTitle.onAdd =  function(map) {
     this._div = L.DomUtil.create('div', 'mapTitle'); 
-    this._div.innerHTML = '<img src="./static/assets/WERI MAppFx Well Nitrates Title Card-White_Bold.png" height="150">';
+    this._div.innerHTML = '<img src="./static/assets/WERI MAppFx CNMI Well Nitrates Title Card-White_Bold.png" height="150">';
     return this._div;
 };
 
-//TODO: Add Saipan MAppFx Title
-// mapTitle.addTo(map);
+ mapTitle.addTo(map);
 
 // var sidebar = L.control.sidebar('sidebar').addTo(map); //was always commented out
 
