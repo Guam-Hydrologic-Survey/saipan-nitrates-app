@@ -559,7 +559,7 @@ fetch(map_url)
         // layerControl.addOverlay(insWells, "Insignificant");
 
         //TODO: Saipan Layer of Wells
-        const sampleWells = L.geoJSON(geojson, {
+        const cnmiWells = L.geoJSON(geojson, {
             // filter: function(feature, layer) {
             //     return (feature.properties.sig) == 0;
             // }, 
@@ -574,10 +574,10 @@ fetch(map_url)
                 })
             }, 
             onEachFeature: getWellInfo}).addTo(map);
-        layerControl.addOverlay(sampleWells, "CNMI Wells");
+        layerControl.addOverlay(cnmiWells, "CNMI Wells");
 
         // const mapJson = L.layerGroup([sigIncWells, sigDecWells, insWells]).addTo(map);
-        const mapJson = L.layerGroup([sampleWells]).addTo(map);
+        const mapJson = L.layerGroup([cnmiWells]).addTo(map);
         
         // Control search  
         const searchControl = new L.Control.Search({ 
