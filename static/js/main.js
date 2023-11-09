@@ -70,7 +70,7 @@ const mapTitle = L.control({position: 'topleft'});
 
 mapTitle.onAdd =  function(map) {
     this._div = L.DomUtil.create('div', 'mapTitle'); 
-    this._div.innerHTML = '<img src="./static/assets/WERI MAppFx CNMI Well Nitrates Title Card-White_Bold.png" height="125">';
+    this._div.innerHTML = '<img src="./static/assets/WERI MappFx CNMI Well Nitrates Title Card-White_Bold.png" height="125">';
     return this._div;
 };
 
