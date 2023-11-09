@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Saipan | WERI MAppFx</title>
+    <title>CNMI Production Well Nitrates | WERI MAppFx</title>
     <link rel="shortcut icon" href="./static/assets/WERI-Logo.ico" type="image/x-icon">
 
      <!-- Leaflet JS and CSS -->
@@ -58,20 +58,20 @@
     <script src="./static/js/main.js" defer></script>
 </head>
 <body>
-    <!-- Button group 
+    <!-- Button group -->
     <div class="bs-btn-group">
       <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-        Button group -->
+    <!-- Button group -->
 
-        <!-- About button
+        <!-- About button -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#about" title="About">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
           </svg>
         </button>
-        About button -->
+       <!-- About button -->
 
-        <!--
+        <!-- Legend button 
         <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#legend" title="Legend">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
@@ -79,15 +79,16 @@
             <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
           </svg>
         </button>
+      -->
 
         <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2022/11/09/mappfx-ngla-well-nitrates/" target="_blank" rel="noreferrer noopener" role="button" title="Home">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
             <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
           </svg>
         </a>
-        -->
+        <!-- -->
       
-        <!-- Dropdown for links to WERI and GHS sites
+        <!-- Dropdown for links to WERI and GHS sites -->
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Links">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -102,7 +103,7 @@
         </div>
       </div>
     </div>
-    Dropdown for links to WERI and GHS sites -->
+    <!-- Dropdown for links to WERI and GHS sites -->
 
   
     <!-- Leaflet Map -->
@@ -123,7 +124,8 @@
         </div>
       </div>
       
-    <!-- Bootstrap Modal for About
+      <!-- TODO: saipan acm presentation outline-->
+    <!-- Bootstrap Modal for About -->
     <div class="modal fade" id="about" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
@@ -132,27 +134,47 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p><strong>MAppFx</strong> is a web page interactive map environment that retrieves an interactive graph of a site upon clicking a map feature object (be it a point, polygon, or a line). WERI Web MAppFx is a product of WERI through the Guam Hydrologic Survey Program (P.L. 24-247) and USGS 104-b, available through the <a href="https://guamhydrologicsurvey.uog.edu/" target="_blank" rel="noreferrer noopener">Guam Hydrologic Survey website</a>. MAppFx is developed by GHS Information Management Team Dannika K. U. Valerio, Matt W. Zapata, Leroy F. Heitz, and Nathan C. Habana in collaboration with Brigham Young University Civil Engineering Department Riley Hales, Gus Williams, and Norm Jones.
-              <br><br>
-              GHS data analysis of Guam’s production well nitrate-n samples was done by Jezreelyn Y. Bulaklak and Nathan Habana. A <a href="https://www.postguam.com/news/local/study-nitrate-levels-rising-in-water-wells/article_030ad950-27a5-11eb-b457-275e19ec9e17.html" target="_blank" rel="noreferrer noopener">Scientific Advisory Report </a>was produced and written by Jezreelyn Bulaklak, Nathan Habana, and John Jenson.
-              <br><br>
-              Data originated from Guam Waterworks Authority as organized and transferred through Mauryn McDonald (<a href="https://weri-cdn.uog.edu/wp-content/PDFs/TRs/WERI%20TR%2095%20-%20McDonald%202002.pdf" target="_blank" rel="noreferrer noopener">WERI Technical Report 95</a>), and lab records from Jennifer Cruz, N’tasha Perez, and Carmen Sian-Denton and Gary Denton.
-              <br><br><br>
-              <i>References:</i>
-              <br>
-              McDonald, M.Q. (2002) Nitrate-Nitrogen Concentrations in the Northern Guam Lens and Potential Nitrogen Sources. WERI Technical Report 95, WERI UOG, Mangilao, Guam.
-              <br>
-              Bulaklak, J.Y., Habana, N.C., and J.W. Jenson (2020) WERI Scientific Advisory Paper, Nitrate Occurrence and Trends in the Northern Guam Lens Aquifer: Observations and Findings to Date. WERI UOG. Made available through the Guam Daily Post article, WERI advisory paper on Bill 404.
+            <p><strong>MAppFx</strong> is a web page interactive map environment that retrieves an interactive graph of a site upon clicking a map feature object (be it a point, polygon, or a line). WERI Web MAppFx is a product of WERI through the Guam Hydrologic Survey Program (P.L. 24-247) and USGS 104-b, available through the <a href="https://guamhydrologicsurvey.uog.edu/" target="_blank" rel="noreferrer noopener">Guam Hydrologic Survey website</a>. 
+              
+            <br><br>
+            Data originated from Bureau of Environmental and Coastal Quality's Data Manager and Team. Through a collaborative effort, the GHS Information 
+            Management Team created this online data visualization tool to facilitate modern means of data sharing and interagency outreach. The primary focus of this tool is to use nitrates as an indicator of groundwater contamination, making it an essential resource for environmental monitoring.
+            <br><br>
+            In terms of future development, the team behind WERI MAppFx plans to further enhance the user interface and user experience, taking into account feedback received during the 2023 CNMI Water Advisory Council Meeting. This includes improvements in identifying well shapes, implementing a color legend, incorporating additional statistics, and providing layers for different islands like Saipan, Tinian, and Rota. The ultimate goal is to seek approval to make this valuable product available for public viewing online, ensuring that it serves as a powerful tool for a wide range of users.
+            <br><br>
+
+            <strong>Contributors </strong><br>
+            MW Zapata · DK Valerio · NC Habana <br><br> 
+
+            <strong>Acknowledgements</strong><br>
+            <i>Bureau of Environmental and Coastal Quality</i><br>
+            Glen Arriola · Travis Spaeth · BECQ Team
+            <br><br>
+
+            <i>Brigham Young University</i><br>
+            Civil Engineering Department, Hydroinformatics Laboratory <br>
+            Riley Hales · Dr. Gus Williams · Dr. Norm Jones <br><br>
+            
+            <i>Water & Environmental Research Institute of the Western Pacific</i> <br>
+            University of Guam <br>
+            Shahram Khosrowpanah · Mark A. Lander · Bill Whitman <br><br>
+            
+            <i>University of Guam’s Web Team</i><br>
+            John Wiglesworth · Matthew Raymundo · UOG Web Team · Rommel Hidalgo
+            <br><br><br>
+             
             </p>
           </div>
+          <!--
           <div class="modal-footer about-btns">
             <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/02/28/mappfx-production-well-nitrates-northern-guam-lens-aquifer-v2/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
             <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener" role="button">NGLA Map Series</a>
           </div>
+          -->
         </div>
       </div>
     </div>
-    Bootstrap Modal for About -->
+    <!-- Bootstrap Modal for About -->
 
     <!-- Bootstrap Offcanvas for Stats Side Panel -->
     <div class="offcanvas offcanvas-start offcanvas-size-xl rounded shadow bg-body" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" data-bs-backdrop="false">
