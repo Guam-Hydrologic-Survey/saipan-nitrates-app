@@ -3,6 +3,9 @@
 /python 
 /node_modules
 
+# -------------- For Data Testing
+/static/data/sampleWells.json
+
 # -------------- For Visual Studio Code 
 .vscode/*
 !.vscode/settings.json
