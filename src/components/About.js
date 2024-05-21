@@ -15,35 +15,43 @@ export function About(element) {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <span class="weri-tr-title" id="weri-tr-num">WERI Technical Report No. ###</span>
-            <br>
-            <span class="weri-tr-title" id="weri-tr-text">Project Title</span>
+            <p><strong>MAppFx</strong> is a web page interactive map environment that retrieves an interactive graph of a site upon clicking a map feature object (be it a point, polygon, or a line). WERI Web MAppFx is a product of WERI through the Guam Hydrologic Survey Program (P.L. 24-247) and USGS 104-b, available through the <a href="https://guamhydrologicsurvey.uog.edu/" target="_blank" rel="noreferrer noopener">Guam Hydrologic Survey website</a>. 
+              
             <br><br>
-            <p id="abstract">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A cras semper auctor neque vitae. Sit amet mauris commodo quis imperdiet. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Turpis tincidunt id aliquet risus feugiat in. Nibh sit amet commodo nulla facilisi nullam vehicula. Diam maecenas sed enim ut sem viverra. Hendrerit gravida rutrum quisque non tellus orci ac auctor augue. Facilisis magna etiam tempor orci eu. Aliquet porttitor lacus luctus accumsan tortor posuere. Risus in hendrerit gravida rutrum quisque. Pretium fusce id velit ut. Sed turpis tincidunt id aliquet risus feugiat in ante metus. Nam libero justo laoreet sit. Nam at lectus urna duis convallis convallis. Eu lobortis elementum nibh tellus molestie nunc non blandit. Tristique senectus et netus et malesuada fames ac turpis. Quam pellentesque nec nam aliquam sem et.</p>
-            <p class="people">
-              <span>Authors</span>
-              <br>
-              <span class="names">Author 1 · Author 2 · Author 3</span>
-            </p>
-            <p class="people">
-              <span>Contributors</span>
-              <br>
-              <span class="names">Developer · Data Analyst · Etc.</span>
-            </p>
-            <p class="people">
-              <span>Acknowledgements</span>
-              <br>
-              <span class="group">Group</span>
-              <br>
-              <span class="dept">Deptartment</span>
-              <br>
-              <span class="names">Person 1 · Person 2 · Person 3</span>
+            Data originated from Bureau of Environmental and Coastal Quality's Data Manager and Team. Through a collaborative effort, the GHS Information 
+            Management Team created this online data visualization tool to facilitate modern means of data sharing and interagency outreach. The primary focus of this tool is to use nitrates as an indicator of groundwater contamination, making it an essential resource for environmental monitoring.
+            <br><br>
+            In terms of future development, the team behind WERI MAppFx plans to further enhance the user interface and user experience, taking into account feedback received during the 2023 CNMI Water Advisory Council Meeting. This includes improvements in identifying well shapes, implementing a color legend, incorporating additional statistics, and providing layers for different islands like Saipan, Tinian, and Rota. The ultimate goal is to seek approval to make this valuable product available for public viewing online, ensuring that it serves as a powerful tool for a wide range of users.
+            <br><br>
+
+            <strong>Contributors </strong><br>
+            MW Zapata · DK Valerio · NC Habana <br><br> 
+
+            <strong>Acknowledgements</strong><br>
+            <i>Bureau of Environmental and Coastal Quality</i><br>
+            Glen Arriola · Travis Spaeth · BECQ Team
+            <br><br>
+
+            <i>Brigham Young University</i><br>
+            Civil Engineering Department, Hydroinformatics Laboratory <br>
+            Riley Hales · Dr. Gus Williams · Dr. Norm Jones <br><br>
+            
+            <i>Water & Environmental Research Institute of the Western Pacific</i> <br>
+            University of Guam <br>
+            Shahram Khosrowpanah · Mark A. Lander · Bill Whitman <br><br>
+            
+            <i>University of Guam’s Web Team</i><br>
+            John Wiglesworth · Matthew Raymundo · UOG Web Team · Rommel Hidalgo
+            <br><br><br>
+             
             </p>
           </div>
+          <!--
           <div class="modal-footer about-btns">
-            <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
+            <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/02/28/mappfx-production-well-nitrates-northern-guam-lens-aquifer-v2/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
             <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener" role="button">NGLA Map Series</a>
           </div>
+          -->
         </div>
       </div>
     </div>
