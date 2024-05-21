@@ -250,7 +250,7 @@ export function LMap(element) {
                 })
             }
             geoJsonData = L.geoJSON(geojson, { onEachFeature: (getValues) }).addTo(map);
-            layerControl.addOverlay(geoJsonData, "NGLA");
+            layerControl.addOverlay(geoJsonData, "CNMI Wells");
 
             // let fuse = new Fuse(geoJsonData.features, {
             //     keys: [
