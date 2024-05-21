@@ -39,6 +39,16 @@ export function LMap(element) {
     const layerControl = L.control.layers(baseLayers, null, { position: "bottomright" });
     layerControl.addTo(map);
 
+    const mapTitle = L.control({position: 'topleft'});
+
+    mapTitle.onAdd =  function(map) {
+        this._div = L.DomUtil.create('div', 'mapTitle'); 
+        this._div.innerHTML = '<img src="./src/assets/WERI_MappFx_CNMI_Well_Nitrates_Title_Card_White_Bold.png" height="125">';
+        return this._div;
+    };
+
+    mapTitle.addTo(map);
+
     const zoomControl = L.control.zoom({
         // options: topleft, topright, bottomleft, bottomright
         position: 'bottomright'
