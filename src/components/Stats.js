@@ -16,7 +16,7 @@ function header(statistics) {
     `
     <div class="side-panel-header">
         <h4>Well ${statistics.name}</h4>
-        <div class="location" id="basin">${statistics.basin} Basin</div>
+        <div class="location" id="basin">Facility Name: ${statistics.facility_name} </div>
         <div class="location" id="coords">${roundDec(statistics.lat)}, ${roundDec(statistics.lon)}</div>
     </div>
     <hr/>
@@ -40,20 +40,17 @@ function basicStats(statistics) {
                 <p class="stats-text">Average</p>
                 <p class="stats-text">Min</p>
                 <p class="stats-text">Max</p>
-                <p class="stats-text">Mode</p>
-                <p class="stats-text">Slope</p>
-                <p class="stats-text">Intercept</p>
-                <p class="stats-text">Standard Deviation</p>
+                <p class="stats-text">N-Data</p>
+                <br>
+                <br>
             </div>
             <!-- values for basic statistics --> 
             <div class="stats-col">
                 <p class="stats-num">${roundDec(statistics.average)}</p>
                 <p class="stats-num">${roundDec(statistics.min)}</p>
                 <p class="stats-num">${roundDec(statistics.max)}</p>
-                <p class="stats-num">${roundDec(statistics.mode)}</p>
-                <p class="stats-num">${roundDec(statistics.slope)}</p>
-                <p class="stats-num">${roundDec(statistics.intercept)}</p>
-                <p class="stats-num">${roundDec(statistics.std_dev)}</p>
+                <p class="stats-num">${roundDec(statistics.n_data)}</p>
+                <br>
             </div>
         </div>
     </div>
@@ -82,43 +79,19 @@ function additionalStats(statistics) {
                     <div class="stats-row">
                         <!-- labels for additional statistics -->
                         <div class="stats-col">
-                            <p class="stats-text">Rcrit</p>
-                            <p class="stats-text">Rcalc Mo</p>
-                            <p class="stats-text">Rcalc New</p>
-                            <p class="stats-text">EA</p>
-                            <p class="stats-text">EA X<sup>2</sup></p>
-                            <p class="stats-text">Base Year</p>
-                            <p class="stats-text">End Year</p>
-                            <p class="stats-text">Top 1</p>
-                            <p class="stats-text">Top 2</p>
-                            <p class="stats-text">Bottom 1</p>
-                            <p class="stats-text">Bottom 2</p>
-                            <p class="stats-text">Increase in 10 Years</p>
-                            <p class="stats-text">Increase in 20 Years</p>
-                            <p class="stats-text">1ppm in X Years</p>
-                            <p class="stats-text">Significance</p>
-                            <p class="stats-text">MoP</p>
-                            <p class="stats-text">Annual Frequency</p>
+                            <p class="stats-text">Facility ID</p>
+                            <p class="stats-text">StreetNum ID</p>
+                            <p class="stats-text">PWSS Name</p>
+                            <p class="stats-text">Source Type</p>
+                            <p class="stats-text">Assigned Capacity</p>
                         </div>
                         <!-- values for additional statistics -->
                         <div class="stats-col">                
-                            <p class="stats-num">${roundDec(statistics.rcrit)}</p>
-                            <p class="stats-num">${roundDec(statistics.rcalc_mo)}</p>              
-                            <p class="stats-num">${roundDec(statistics.rcalc_new)}</p>
-                            <p class="stats-num">${roundDec(statistics.EA)}</p>
-                            <p class="stats-num">${roundDec(statistics.EA_X2)}</p>
-                            <p class="stats-num">${statistics.base_year}</p>
-                            <p class="stats-num">${statistics.end_year}</p>
-                            <p class="stats-num">${roundDec(statistics.top1)}</p>
-                            <p class="stats-num">${roundDec(statistics.top2)}</p>
-                            <p class="stats-num">${roundDec(statistics.bottom1)}</p>
-                            <p class="stats-num">${roundDec(statistics.bottom2)}</p>
-                            <p class="stats-num">${roundDec(statistics.inc_10_Yrs)}</p>
-                            <p class="stats-num">${roundDec(statistics.inc_20_Yrs)}</p>
-                            <p class="stats-num">${roundDec(statistics.x_yrs_1ppm)}</p>
-                            <p class="stats-num">${roundDec(statistics.sig)}</p>
-                            <p class="stats-num">${roundDec(statistics.MoP)}</p>
-                            <p class="stats-num">${roundDec(statistics.annual_freq)}</p>
+                            <p class="stats-num">${roundDec(statistics.facility_ID)}</p>
+                            <p class="stats-num">${roundDec(statistics.streetNum_ID)}</p>              
+                            <p class="stats-num">${roundDec(statistics.pwss_name)}</p>
+                            <p class="stats-num">${roundDec(statistics.source_type)}</p>
+                            <p class="stats-num">${roundDec(statistics.assigned_capacity)}</p>
                         </div>
                     </div>
                 </div>

@@ -16,14 +16,19 @@ import { SelectionView, choices, choicesLayers } from "./SelectionView.js";
 import { createChoice } from "../utils/createChoice.js";
 
 // globals 
-const geoJsonUrl = "./src/data/dummy_data.json"; // update this with data set; must be full path, starting from the root directory 
+// const geoJsonUrl = "./src/data/dummy_data.json"; // update this with data set; must be full path, starting from the root directory 
+const geoJsonUrl = "./src/data/saipanWells.json"; // update this with data set; must be full path, starting from the root directory 
 let geoJsonData;
 
 const lassoControl = L.control.lasso({ position: "bottomright" });
 
 export function LMap(element) {
 
-    const center = [13.5435056,144.7478083];
+    //center of guam
+    // const center = [13.5435056,144.7478083];
+    
+    //center of saipan
+    const center = [15.187953368844124,145.71065791414713];
     const defaultZoom = 12;
     const maxZoom = 19; 
 
