@@ -4,9 +4,6 @@ Parameters: "element" - HTML element with ID for modal
 Return: none
 */
 
-// components 
-import { additionalSelection } from "./Toast.js";
-
 export function FullscreenModal(element) {
 
     element.innerHTML = /*html*/
@@ -16,8 +13,8 @@ export function FullscreenModal(element) {
             <div class="modal-content">
                 
                 <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Multi-Plot View</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" id="close-plot-selection" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Plots for Select Points</h1>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" id="close-plot-selection" aria-label="Close"></button> -->
                 </div>
 
                 <!-- Selected plots will be appended here -->
@@ -41,13 +38,8 @@ export function FullscreenModal(element) {
         reset.replaceChildren();
     })
 
-    const selectMorePoints = document.getElementById("select-more-points");
-    selectMorePoints.addEventListener("click", (event) => {
-        additionalSelection(document.getElementById("notif"));
-    })
-
-    const closePlotSelection = document.getElementById("close-plot-selection");
-    closePlotSelection.addEventListener("click", (event) => {
-        reset.replaceChildren();
-    })
+    // const closePlotSelection = document.getElementById("close-plot-selection");
+    // closePlotSelection.addEventListener("click", (event) => {
+    //     reset.replaceChildren();
+    // })
 };
