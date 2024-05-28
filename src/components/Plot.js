@@ -26,7 +26,7 @@ let trace = {
 // array to contain plot traces
 let dataValues = [];
 
-var selectorOptions = {
+let selectorOptions = {
     buttons: [{
         step: 'year',
         stepmode: 'backward',
@@ -95,7 +95,6 @@ let layout = {
         fixedrange: true
     }
 };
-
 
 // custom icon for plot modebar buttons
 let icon1 = {
@@ -266,12 +265,12 @@ Function: MultiplePLots()
 Parameters:
     "selection" - array list containing selected objects
     "element" - parent HTML element to insert generated plots for multi-plot view
+    "method" - a string; dictates what method of selection was used 
 Return: none
 Notes: Because of the reserve word, "export," this function is available to other components within the project.
 */
 export function MultiplePlots(selection, element, method) {
     let plot = "";
-    // TODO - add check for selection format (lasso or click) because of different array/object structure 
     if (method === "lasso") {
         for (let i = 0; i < selection.length; i++) {
             const well = selection[i].feature.properties;
@@ -288,9 +287,12 @@ export function MultiplePlots(selection, element, method) {
             element.insertAdjacentHTML("beforeend", plot);
             Plot(well, id);
         }
+
+        // open multiple plot view modal 
+        const plotModal = document.getElementById("multi-plot-view");
+        const viewPlotModal = bootstrap.Modal.getOrCreateInstance(plotModal);
+        viewPlotModal.show();
     } 
-    // console.log("\nfrom MultiplePlots");
-    // console.log(element);
 }
 
 /*
