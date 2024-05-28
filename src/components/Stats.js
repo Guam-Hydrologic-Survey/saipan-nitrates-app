@@ -87,11 +87,11 @@ function additionalStats(statistics) {
                         </div>
                         <!-- values for additional statistics -->
                         <div class="stats-col">                
-                            <p class="stats-num">${roundDec(statistics.facility_ID)}</p>
-                            <p class="stats-num">${roundDec(statistics.streetNum_ID)}</p>              
-                            <p class="stats-num">${roundDec(statistics.pwss_name)}</p>
-                            <p class="stats-num">${roundDec(statistics.source_type)}</p>
-                            <p class="stats-num">${roundDec(statistics.assigned_capacity)}</p>
+                            <p class="stats-num">${(statistics.facility_ID)}</p>
+                            <p class="stats-num">${(statistics.streetNum_ID)}</p>              
+                            <p class="stats-num">${(statistics.pwss_name)}</p>
+                            <p class="stats-num">${(statistics.source_type)}</p>
+                            <p class="stats-num">${(statistics.assigned_capacity)}</p>
                         </div>
                     </div>
                 </div>
