@@ -4,7 +4,9 @@ Parameters: "element" - HTML element with ID for selection view left side panel 
 Return: none
 */
 
+// components 
 import { MultiplePlots } from "./Plot.js";
+import { pointSelectBtn } from "./LMap.js";
 
 let choices = [];
 let choicesLayers = [];
@@ -12,6 +14,12 @@ let finalSelection = [];
 
 export { choices, choicesLayers, finalSelection };
 
+/* 
+Function: SelectionView()
+Parameter: "selection" - HTML element to append to 
+Return: none 
+Description: Creates left side panel offcanvas to show the user their current selection 
+*/
 export function SelectionView(selection) {
 
     const selectionViewId = "selection-view-offcanvas";
@@ -21,7 +29,7 @@ export function SelectionView(selection) {
     <div class="offcanvas offcanvas-start offcanvas-size-xl rounded shadow bg-body" data-bs-scroll="true" tabindex="-1" id="${selectionViewId}" aria-labelledby="offcanvasWithBothOptionsLabel" data-bs-backdrop="false" data-bs-animation="slide-in-left">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" id="click-selection-close-btn" aria-label="Close"></button>
       </div>
 
       <div class="offcanvas-body">
@@ -45,12 +53,26 @@ export function SelectionView(selection) {
     const selectionViewOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(selectionView);
     selectionViewOffcanvas.show();
 
-    // functionality for item checkbox 
-    document.getElementById("selection-view-list").onclick = function(e) {
-      if (e.target.value) {
-        console.log(e.target.checked, e.target.value);
+    // functionality for item checkbox on change 
+    document.getElementById("selection-view-list").onchange = function(e) {
+      if (!e.target.checked) {
+        for (let i =0; i < choicesLayers.length; i++) {
+          if (e.target.value == choicesLayers[i].name) {
+            choicesLayers.splice(i, 1);
+            break;
+          }
+        }
       }
     }
+
+    const closeSelectionView = document.getElementById("click-selection-close-btn");
+    closeSelectionView.addEventListener("click", () => {
+      // turn off click to select points buttons 
+      pointSelectBtn.state("detrigger-pointSelectBtn");
+      
+      // clear plot contents 
+      document.getElementById("multi-plot-view-contents").replaceChildren();
+    })
 
     // functionality for "select all" option 
     const selectAll = document.getElementById("selection-view-select-all-btn");
@@ -70,6 +92,20 @@ export function SelectionView(selection) {
     })
 }
 
+// creates checkbox for each point selected; called in fetch during "click" event on map layer 
+export function createCheckBox(label) {
+  let radio = /* html */
+  `
+  <div class="form-check">
+    <input class="form-check-input point-click-select" type="checkbox" value="${label}" id="${label}" checked>
+    <label class="form-check-label" for="${label}">${label}</label>
+  </div>
+  `;
+
+  document.getElementById("selection-view-list").insertAdjacentHTML("beforeend", radio);
+}
+
+// sets checkbox input attribute checked to true 
 function selectAllPoints() {
   // let checkboxes = document.getElementsByTagName("input");
   let checkboxes = document.getElementsByClassName("point-click-select");
@@ -82,8 +118,8 @@ function selectAllPoints() {
   }
 }
 
+// sets checkbox input attribute checked to false 
 function clearSelection() {
-  // let checkboxes = document.getElementsByTagName("input");
   let checkboxes = document.getElementsByClassName("point-click-select");
   for (let i = 0; i < checkboxes.length; i++) {
     let choice = checkboxes[i];
@@ -92,29 +128,15 @@ function clearSelection() {
       choice.removeAttribute("checked");
     }
   }
+  
+  // reset the array 
   finalSelection = [];
+
+  // clear plots from view 
+  const reset = document.getElementById("multi-plot-view-contents");
+  reset.replaceChildren();
 }
 
-// TODO - use the plotSelection from the Toast; going a different route may need to set choices as globals in order to send data to Plot
 function plotSelection() {
-  let checkboxes = document.getElementsByClassName("point-click-select");
-  for (let i = 0; i < checkboxes.length; i++) {
-    let choice = checkboxes[i];
-    if (choice.checked) {
-      console.log(choice.value)
-      // TODO - prevent doubles; check before adding 
-      finalSelection.push(choicesLayers[i]);
-      // reviewChoicesLayers(choice.value);
-    }
-  }
-  console.log(choicesLayers);
-  console.log(finalSelection);
-  // MultiplePlots(finalSelection, document.getElementById("multi-plot-view-contents"), "click");
-}
-
-function reviewChoicesLayers(name) {
-  console.log('reviewChoiceLayers')
-  for (let i = 0; i < choicesLayers.length; i++) {
-    console.log(choicesLayers[i].name);
-  }
+  MultiplePlots(choicesLayers, document.getElementById("multi-plot-view-contents"), "click");
 }
