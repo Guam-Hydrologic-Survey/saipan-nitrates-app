@@ -9,25 +9,67 @@ import { BaseLayers } from "./Baselayers.js";
 import { SidePanel } from "./SidePanel.js";
 import { MarkerPopup } from "./MarkerPopup.js";
 import { MultiplePlots } from "./Plot.js";
-import { completeSelection, selectionProgessNotif, additionalSelection } from "./Toast.js";
-import { SelectionView, choices, choicesLayers } from "./SelectionView.js";
+import { completeSelection, additionalSelection, alreadySelected } from "./Toast.js";
+import { SelectionView, choices, choicesLayers, createCheckBox } from "./SelectionView.js";
 
 // utils 
+import { geoJsonUrl } from "../utils/dataSource.js";
 import { createChoice } from "../utils/createChoice.js";
 
-// globals 
-// const geoJsonUrl = "./src/data/dummy_data.json"; // update this with data set; must be full path, starting from the root directory 
-const geoJsonUrl = "./src/data/saipanWells.json"; // update this with data set; must be full path, starting from the root directory 
 let geoJsonData;
+
+let selectionMode = "";
 
 const lassoControl = L.control.lasso({ position: "bottomright" });
 
+let pointSelectBtnState = false;
+let pointSelectLayers = [];
+
+const pointSelectBtn = L.easyButton({
+    states: [
+        {
+            stateName: 'detrigger-pointSelectBtn',
+            icon: '<img src="./src/assets/hand-index-thumb.svg">',
+            title: 'Select points to plot on click',
+            onClick: function(btn, map) {
+                console.log("Turned on point selection through click");
+                btn.state('trigger-pointSelectBtn');
+                pointSelectBtnState = true;
+                console.log(pointSelectBtnState);
+                map.on("click", function(point) {
+                    console.log(point.latlng);
+                    // console.log(point.target.feature.properties.name);
+                    console.log("Selected a point.")
+                });
+                selectionMode = "click";
+                // additionalSelection(document.getElementById("notif"));
+                SelectionView();
+            }
+        },
+        {
+            stateName: 'trigger-pointSelectBtn',
+            icon: '<img src="./src/assets/hand-index-thumb-fill.svg">',
+            title: "Turn off click-on-point selection",
+            onClick: function(btn) {
+                console.log("Turned off point selection through click");
+                btn.state('detrigger-pointSelectBtn');
+                pointSelectBtnState = false;
+                pointSelectLayers = [];
+                // choicesLayers = [];
+                const selectionView = document.getElementById("selection-view-offcanvas");
+                const selectionViewOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(selectionView);
+                selectionViewOffcanvas.hide();
+            }
+        }
+    ]
+});
+
 export function LMap(element) {
 
-    //center of guam
+    // center of guam 
     // const center = [13.5435056,144.7478083];
-    
-    //center of saipan
+
+    // center of saipan
     const center = [15.187953368844124,145.71065791414713];
     const defaultZoom = 12;
     const maxZoom = 19; 
@@ -128,48 +170,7 @@ export function LMap(element) {
         layerControl.addOverlay(drawnFeatures, "Drawings");
     } 
 
-    let pointSelectBtnState = false;
-
-    let pointSelectLayers = [];
-
-    const pointSelectBtn = L.easyButton({
-        states: [
-            {
-                stateName: 'detrigger-pointSelectBtn',
-                icon: '<img src="./src/assets/hand-index-thumb.svg">',
-                title: 'Select points to plot on click',
-                onClick: function(btn, map) {
-                    console.log("Turned on point selection through click");
-                    btn.state('trigger-pointSelectBtn');
-                    pointSelectBtnState = true;
-                    map.on("click", function(point) {
-                        console.log(point.latlng);
-                        // console.log(point.target.feature.properties.name);
-                        console.log("Selected a point.")
-                    });
-                    // additionalSelection(document.getElementById("notif"));
-                    SelectionView();
-                }
-            },
-            {
-                stateName: 'trigger-pointSelectBtn',
-                icon: '<img src="./src/assets/hand-index-thumb-fill.svg">',
-                title: "Turn off click-on-point selection",
-                onClick: function(btn) {
-                    console.log("Turned off point selection through click");
-                    btn.state('detrigger-pointSelectBtn');
-                    pointSelectBtnState = false;
-                    pointSelectLayers = [];
-                    choicesLayers = [];
-                    const selectionView = document.getElementById("selection-view-offcanvas");
-                    const selectionViewOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(selectionView);
-                    selectionViewOffcanvas.hide();
-                }
-            }
-        ]
-    });
-
-    console.log(pointSelectBtn.options.states);
+    // console.log(pointSelectBtn.options.states);
 
     const pointSelectionControls = L.easyBar([
         pointSelectBtn,
@@ -215,56 +216,31 @@ export function LMap(element) {
                     if (!pointSelectBtnState) {
                         // map.closePopup(); 
                         SidePanel(point.target.feature.properties);
-                        console.log(point.target.feature.properties.name);
                         pointSelectLayers = [];
                         // choicesLayers = [];
                         choicesLayers.length = 0;
-                        console.log("Reset choicesLayers: " + choicesLayers.length + ", " + choicesLayers);
+                       
                     } else {
-                        // TODO - (for the pointSelectBtn) send point.target.feature.properties to somewhere where the data can be accessed and processed for the multi-plot-view 
                         console.log(point.target.feature.properties.name);
-
-                        let label = "";
 
                         // check if point was already clicked/selected 
                         if (!pointSelectLayers.includes(point.target.feature.properties)) {
                             pointSelectLayers.push(point.target.feature.properties);
                             choicesLayers.push(point.target.feature.properties);
-                            console.log(choicesLayers);
-                            label = point.target.feature.properties.name;
-                            let radio = /*html*/
-                            `
-                            <div class="form-check">
-                                <input class="form-check-input point-click-select" type="checkbox" value="${label}" id="${label}" checked>
-                                <label class="form-check-label" for="${label}">${label}</label>
-                            </div>
-                            `
-                            document.getElementById("selection-view-list").insertAdjacentHTML("beforeend", radio);
-
-                            // TODO - maybe add event listeners to each check button here? 
-                            // OR for each point clicked, send to a new SelectionView function that will generate the HTML element AND add event listeners 
+                            createCheckBox(point.target.feature.properties.name);
 
                             // create choice object and add to choices array 
                             choices.push(createChoice(point.target.feature.properties.name, true));
-                            console.log(choices);
+                            // console.log(choices);
 
                         } else {
-                            console.log(`You already selected this point, ${point.target.feature.properties.name}.`);
+                            alreadySelected(document.getElementById("notif"), point.target.feature.properties.name);
                         }
                     }
                 })
             }
             geoJsonData = L.geoJSON(geojson, { onEachFeature: (getValues) }).addTo(map);
-            layerControl.addOverlay(geoJsonData, "CNMI Wells");
-
-            // let fuse = new Fuse(geoJsonData.features, {
-            //     keys: [
-            //         'properties.name',
-            //         'properties.basin',
-            //     ]
-            // });
-
-            // let fuse = new Fuse(geoJsonData)
+            layerControl.addOverlay(geoJsonData, "Layer Name");
 
             // for search control 
             let searchCoords = [];
@@ -322,13 +298,16 @@ export function LMap(element) {
         if (event.layers.length != 0) {
             completeSelection(document.getElementById("notif"), event.layers);
             MultiplePlots(event.layers, document.getElementById("multi-plot-view-contents"), "lasso");
-            console.log(event.layers);
+            // console.log(event.layers);
         } 
+
+        selectionMode = "lasso";
     });
 
     // functionality for #select-more-points btn in FullscreenModal.js 
-    const fullScreenModalMorePoints = document.getElementById("select-more-points");
+    let fullScreenModalMorePoints = document.getElementById("select-more-points");
     fullScreenModalMorePoints.addEventListener("click", () => {
+        additionalSelection(document.getElementById("notif"));
         if (lassoControl.enabled()) {
             lassoControl.disable();
         } else {
@@ -339,4 +318,19 @@ export function LMap(element) {
 
 // other components have access to this export 
 // TODO - include point selection control as an export along with lassoControl to be triggered back on/off upon clicking "Select more points to plot" button in FullscreenModal.js 
-export { lassoControl };
+export { selectionMode, lassoControl, pointSelectBtn };
+
+let selectionState;
+
+export function updateSelectionStates() {
+    selectionState = {
+        method: "",
+        state: false,
+    }
+
+    for (let input of document.querySelectorAll('input')) {
+        if (input.checked) {
+            switch (input.className) { }
+        }
+    }
+}
