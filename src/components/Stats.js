@@ -41,8 +41,6 @@ function basicStats(statistics) {
                 <p class="stats-text">Min</p>
                 <p class="stats-text">Max</p>
                 <p class="stats-text">N-Data</p>
-                <br>
-                <br>
             </div>
             <!-- values for basic statistics --> 
             <div class="stats-col">
@@ -50,7 +48,6 @@ function basicStats(statistics) {
                 <p class="stats-num">${roundDec(statistics.min)}</p>
                 <p class="stats-num">${roundDec(statistics.max)}</p>
                 <p class="stats-num">${roundDec(statistics.n_data)}</p>
-                <br>
             </div>
         </div>
     </div>
@@ -80,7 +77,7 @@ function additionalStats(statistics) {
                         <!-- labels for additional statistics -->
                         <div class="stats-col">
                             <p class="stats-text">Facility ID</p>
-                            <p class="stats-text">StreetNum ID</p>
+                            <p class="stats-text">Street Num ID</p>
                             <p class="stats-text">PWSS Name</p>
                             <p class="stats-text">Source Type</p>
                             <p class="stats-text">Assigned Capacity</p>
