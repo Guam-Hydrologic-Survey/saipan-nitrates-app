@@ -12,9 +12,3 @@ export function convertDate(oldDates) {
 
     return newDates;
 }
-
-export function dateMsg() {
-    console.log("This is from convertDate()")
-}
-
-export const dateText = "This is from convertDate()"
