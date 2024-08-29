@@ -24,12 +24,12 @@ export function About(element) {
             In terms of future development, the team behind WERI MAppFx plans to further enhance the user interface and user experience, taking into account feedback received during the 2023 CNMI Water Advisory Council Meeting. This includes improvements in identifying well shapes, implementing a color legend, incorporating additional statistics, and providing layers for different islands like Saipan, Tinian, and Rota. The ultimate goal is to seek approval to make this valuable product available for public viewing online, ensuring that it serves as a powerful tool for a wide range of users.
             <br><br>
 
-            <strong>Contributors </strong><br>
+            <strong>Developers</strong><br>
             MW Zapata · DK Valerio · NC Habana <br><br> 
 
             <strong>Acknowledgements</strong><br>
             <i>Bureau of Environmental and Coastal Quality</i><br>
-            Glen Arriola · Travis Spaeth · BECQ Team
+            Glenn Arriola · Travis Spaeth · BECQ Team
             <br><br>
 
             <i>Brigham Young University</i><br>
