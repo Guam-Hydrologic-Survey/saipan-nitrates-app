@@ -416,9 +416,7 @@ export function LMap(element) {
                         point.addTo(nitrateRange10);
                     } else if (latestNitrate > 10) {
                         point.addTo(nitrateRange10Plus);
-                    } else if (latestNitrate <= 450) {
-                        point.addTo(nitrateRange450);
-                    }
+                    } 
 
 
                     return point;
