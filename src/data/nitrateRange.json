@@ -1,0 +1,46 @@
+{
+    "nitrateRange": [
+        {
+            "name": "blue",
+            "hex": "#0070FF",
+            "rgb": "rgb(0,112,255)",
+            "range": "0 or ND"
+        },
+        {
+            "name": "green",
+            "hex": "#55FF00",
+            "rgb": "rgb(85,255,0)",
+            "range": "(0 - 2]"
+        },
+        {
+            "name": "yellow",
+            "hex": "#FFFF01",
+            "rgb": "rgb(255,255,1)",
+            "range": "(2 - 4]"
+        },
+        {
+            "name": "orange",
+            "hex": "#FFAA00",
+            "rgb": "rgb(255,170,0)",
+            "range": "(4 - 6]"
+        },
+        {
+            "name": "red",
+            "hex": "#FF0000",
+            "rgb": "rgb(255,0,0)",
+            "range": "(6 - 8]"
+        },
+        {
+            "name": "magenta",
+            "hex": "#A50080",
+            "rgb": "rgb(165,0,128)",
+            "range": "(8 - 10]"
+        },
+        {
+            "name": "purple",
+            "hex": "#73004C",
+            "rgb": "rgb(115,0,76)",
+            "range": "10+"
+        }
+    ]
+}

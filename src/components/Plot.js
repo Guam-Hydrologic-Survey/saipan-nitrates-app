@@ -236,7 +236,7 @@ export function Plot(data, element) {
     layout.title.text = `Well ${data.name}`;
     layout.xaxis.title = " ";
     layout.xaxis.rangeselector = " ";
-    layout.yaxis.title = "Nitrate-N Levels";
+    layout.yaxis.title = "ppm (mg/L) ";
 
     // updates trace with newly assigned values
     // trace.x = x_data;
@@ -336,7 +336,7 @@ function largePlot(data, element) {
     layout.title.text = `Well ${data.name}`;
     layout.xaxis.title = " ";
     layout.xaxis.rangeselector = `${selectorOptions}`;
-    layout.yaxis.title = "Nitrate-N Levels";
+    layout.yaxis.title = "ppm (mg/L)";
 
     layout.height = 600;
     layout.width = 1100;
