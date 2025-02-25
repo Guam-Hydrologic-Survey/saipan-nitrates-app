@@ -24,12 +24,12 @@ export function About(element) {
             In terms of future development, the team behind WERI MAppFx plans to further enhance the user interface and user experience, taking into account feedback received during the 2023 CNMI Water Advisory Council Meeting. This includes improvements in identifying well shapes, implementing a color legend, incorporating additional statistics, and providing layers for different islands like Saipan, Tinian, and Rota. The ultimate goal is to seek approval to make this valuable product available for public viewing online, ensuring that it serves as a powerful tool for a wide range of users.
             <br><br>
 
-            <strong>Contributors </strong><br>
+            <strong>Developers</strong><br>
             MW Zapata · DK Valerio · NC Habana <br><br> 
 
             <strong>Acknowledgements</strong><br>
             <i>Bureau of Environmental and Coastal Quality</i><br>
-            Glen Arriola · Travis Spaeth · BECQ Team
+            Glenn Arriola · Travis Spaeth · BECQ Team
             <br><br>
 
             <i>Brigham Young University</i><br>
@@ -42,16 +42,25 @@ export function About(element) {
             
             <i>University of Guam’s Web Team</i><br>
             John Wiglesworth · Matthew Raymundo · UOG Web Team · Rommel Hidalgo
-            <br><br><br>
              
             </p>
           </div>
-          <!--
+          
           <div class="modal-footer about-btns">
-            <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/02/28/mappfx-production-well-nitrates-northern-guam-lens-aquifer-v2/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
-            <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener" role="button">NGLA Map Series</a>
+          <!--
+            <a class="btn btn-primary" title="Coming soon!" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/02/28/mappfx-production-well-nitrates-northern-guam-lens-aquifer-v2/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
+            -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  WERI Map Series
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/mappfx/" title="MAppFx Library on GHS" target="_blank" rel="noreferrer noopener">MAppFx Library</a></li>
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/web-mapps/" title="Web MApps on GHS" target="_blank" rel="noreferrer noopener">Web MApps</a></li>
+                </ul>
+              </div>
           </div>
-          -->
+          
         </div>
       </div>
     </div>
