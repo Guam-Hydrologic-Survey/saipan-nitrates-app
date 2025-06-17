@@ -255,7 +255,7 @@ export function LMap(element) {
                 },
                 onEachFeature: (getValues) 
             }).addTo(map);
-            layerControl.addOverlay(geoJsonData, "Layer Name");
+            // layerControl.addOverlay(geoJsonData, "Layer Name");
 
             // for search control 
             let searchCoords = [];
