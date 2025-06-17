@@ -7,7 +7,7 @@ Parameters: (general)
 */
 
 // components 
-import { lassoControl } from "./LMap.js";
+import { lassoControl } from "./LMap_v3.js";
 
 function toastHeader(content) {
     let header = /* html */

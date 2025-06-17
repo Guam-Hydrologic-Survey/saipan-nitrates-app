@@ -67,9 +67,6 @@ const pointSelectBtn = L.easyButton({
 
 export function LMap(element) {
 
-    // center of guam 
-    // const center = [13.5435056,144.7478083];
-
     // center of saipan
     const center = [15.187953368844124,145.71065791414713];
     const defaultZoom = 12;
@@ -173,11 +170,11 @@ export function LMap(element) {
 
     // console.log(pointSelectBtn.options.states);
 
-    const pointSelectionControls = L.easyBar([
-        pointSelectBtn,
-    ], { position: "bottomright" });
+    // const pointSelectionControls = L.easyBar([
+    //     pointSelectBtn,
+    // ], { position: "bottomright" });
 
-    pointSelectionControls.addTo(map);
+    // pointSelectionControls.addTo(map);
     
     lassoControl.addTo(map); 
 

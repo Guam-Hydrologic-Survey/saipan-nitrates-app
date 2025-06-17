@@ -6,7 +6,7 @@ Return: none
 
 // components 
 import { MultiplePlots } from "./Plot.js";
-import { pointSelectBtn } from "./LMap.js";
+// import { pointSelectBtn } from "./LMap_v3.js";
 
 let choices = [];
 let choicesLayers = [];
