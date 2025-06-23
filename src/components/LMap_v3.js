@@ -193,9 +193,6 @@ export function LMap(element) {
         }
     });
 
-    // layers for different nitrate ranges 
-    let nitrateLayers = 'Toggle all nitrate levels';
-
     const nitrateRange0orND = L.layerGroup();
     const nitrateRange2 = L.layerGroup();
     const nitrateRange4 = L.layerGroup();
@@ -229,7 +226,7 @@ export function LMap(element) {
             nitrateRange8.addTo(map);
             nitrateRange10.addTo(map);
             nitrateRange10Plus.addTo(map);
-
+            
             // resets layers on map (adds everything back)
             document.getElementById(layersResetBtnId).addEventListener('click', () => {
                 nitrateRange0orND.addTo(map);
@@ -285,7 +282,6 @@ export function LMap(element) {
             document.getElementById(nitrateToggleBtns[6]).addEventListener('click', () => {
                 checkLayerExistence(nitrateRange10Plus);
             });
-
 
             // verifies checkbox
             document.getElementById(nitrateToggleBtns[1]).addEventListener('click', (e) => {
@@ -394,7 +390,7 @@ export function LMap(element) {
                     } else if (latestNitrate > 10) {
                         point.addTo(nitrateRange10Plus);
                     } 
-
+ 
                     return point;
                 },
                 onEachFeature: (getValues) 
