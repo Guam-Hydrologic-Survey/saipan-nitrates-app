@@ -11,7 +11,8 @@ import { MarkerPopup } from "./MarkerPopup.js";
 import { MultiplePlots } from "./Plot.js";
 import { completeSelection, additionalSelection, alreadySelected } from "./Toast.js";
 import { SelectionView, choices, choicesLayers, createCheckBox } from "./SelectionView_v3.js";
-import { getIcon } from "./CustomIcon.js";
+import { checkLastValue, getIcon } from "./CustomIcon.js";
+import { nitrateToggleBtns, layersResetBtnId, layersRemoveBtnId } from "./Legend_v3.js";
 
 // utils 
 import { geoJsonUrl } from "../utils/dataSource.js";
@@ -192,6 +193,128 @@ export function LMap(element) {
         }
     });
 
+    // layers for different nitrate ranges 
+    let nitrateLayers = 'Toggle all nitrate levels';
+
+    const nitrateRange0orND = L.layerGroup();
+    const nitrateRange2 = L.layerGroup();
+    const nitrateRange4 = L.layerGroup();
+    const nitrateRange6 = L.layerGroup();
+    const nitrateRange8 = L.layerGroup();
+    const nitrateRange10 = L.layerGroup();
+    const nitrateRange10Plus = L.layerGroup();
+
+    function checkLayerExistence(layer) {
+        if (!map.hasLayer(layer)) {
+            layer.addTo(map);
+        } else {
+            map.removeLayer(layer);
+        }
+    }
+
+    function checkCheckBox(choice, layer) {
+        if (choice) {
+            layer.addTo(map);
+        } else {
+            map.removeLayer(layer);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', (e) => {
+        setTimeout(() => {
+            nitrateRange0orND.addTo(map);
+            nitrateRange2.addTo(map);
+            nitrateRange4.addTo(map);
+            nitrateRange6.addTo(map);
+            nitrateRange8.addTo(map);
+            nitrateRange10.addTo(map);
+            nitrateRange10Plus.addTo(map);
+
+            // resets layers on map (adds everything back)
+            document.getElementById(layersResetBtnId).addEventListener('click', () => {
+                nitrateRange0orND.addTo(map);
+                nitrateRange2.addTo(map);
+                nitrateRange4.addTo(map);
+                nitrateRange6.addTo(map);
+                nitrateRange8.addTo(map);
+                nitrateRange10.addTo(map);
+                nitrateRange10Plus.addTo(map);
+
+                // verify all checkboxes values 
+                const checkboxes = document.querySelectorAll('.form-check-input');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = true;
+                });
+            });
+
+            document.getElementById(layersRemoveBtnId).addEventListener('click', () => {
+                // uncheck all boxes, remove all nitrate layers from map 
+                const checkboxes = document.querySelectorAll('.form-check-input');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+
+                map.removeLayer(nitrateRange0orND);
+                map.removeLayer(nitrateRange2);
+                map.removeLayer(nitrateRange4);
+                map.removeLayer(nitrateRange6);
+                map.removeLayer(nitrateRange8);
+                map.removeLayer(nitrateRange10);
+                map.removeLayer(nitrateRange10Plus);
+            });
+
+            // event listeners for nitrate range layers 
+            document.getElementById(nitrateToggleBtns[0]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange0orND);
+            });
+            document.getElementById(nitrateToggleBtns[1]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange2);
+            });
+            document.getElementById(nitrateToggleBtns[2]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange4);
+            });
+            document.getElementById(nitrateToggleBtns[3]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange6);
+            });
+            document.getElementById(nitrateToggleBtns[4]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange8);
+            });
+            document.getElementById(nitrateToggleBtns[5]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange10);
+            });
+            document.getElementById(nitrateToggleBtns[6]).addEventListener('click', () => {
+                checkLayerExistence(nitrateRange10Plus);
+            });
+
+
+            // verifies checkbox
+            document.getElementById(nitrateToggleBtns[1]).addEventListener('click', (e) => {
+                checkCheckBox(e.target.checked, nitrateRange2)
+            });
+            
+            document.getElementById(nitrateToggleBtns[2]).addEventListener('click', (e) => {
+                checkCheckBox(e.target.checked, nitrateRange4)
+            }); 
+
+            document.getElementById(nitrateToggleBtns[3]).addEventListener('click', (e) => {
+                checkCheckBox(e.target.checked, nitrateRange6)
+            });
+
+            document.getElementById(nitrateToggleBtns[4]).addEventListener('click', (e) => {
+                checkCheckBox(e.target.checked, nitrateRange8)
+            });
+            
+            document.getElementById(nitrateToggleBtns[5]).addEventListener('click', (e) => {
+                checkCheckBox(e.target.checked, nitrateRange10)
+            });
+
+            document.getElementById(nitrateToggleBtns[6]).addEventListener('click', (e) => {
+                checkCheckBox(e.target.checked, nitrateRange10Plus)
+            });
+
+        }, 1000); // end of setTimeOut(...);
+    }); // end of event listener for DOMContentLoaded 
+
     // array holding well with status for use on point selection through click 
     // let choices = [];
     
@@ -238,6 +361,7 @@ export function LMap(element) {
                     }
                 })
             }
+
             geoJsonData = L.geoJSON(geojson, { 
                 pointToLayer: function(feature, latlng) { // Designates custom marker for each well 
                     let svg = getIcon(feature.properties); 
@@ -250,6 +374,26 @@ export function LMap(element) {
                         }),
                     });
 
+                    // add point to nitrate range layer group 
+                    const latestNitrate = checkLastValue(feature.properties.y_vals)[0];
+
+                    if (latestNitrate == null ) {
+                        point.addTo(nitrateRange0orND);
+                    } else if (latestNitrate == 0) {
+                        point.addTo(nitrateRange0orND);
+                    } else if (latestNitrate <= 2) {
+                        point.addTo(nitrateRange2);
+                    } else if (latestNitrate <= 4) {
+                        point.addTo(nitrateRange4);
+                    } else if (latestNitrate <= 6) {
+                        point.addTo(nitrateRange6);
+                    } else if (latestNitrate <= 8) {
+                        point.addTo(nitrateRange8);
+                    } else if (latestNitrate <= 10) {
+                        point.addTo(nitrateRange10);
+                    } else if (latestNitrate > 10) {
+                        point.addTo(nitrateRange10Plus);
+                    } 
 
                     return point;
                 },
