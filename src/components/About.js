@@ -73,7 +73,7 @@ export function About(element) {
           </div>
           
           <div class="modal-footer about-btns">
-            <a class="btn btn-success" title="MAppFx: Production Well Chloride - CNMI" href="https://ghs-cdn.uog.edu/wp-content/databases/MAppFx/saipan-chloride-app/index.html" target="_blank" rel="noreferrer noopener" role="button">MAppFx: Production Well Chloride - CNMI</a>
+            <a class="btn btn-success" title="MAppFx: Production Well Chloride - CNMI" href="https://guam-hydrologic-survey.github.io/saipan-chloride-app/" target="_blank" rel="noreferrer noopener" role="button">MAppFx: Production Well Chloride - CNMI</a>
             <a class="btn btn-primary" title="Coming soon!" href="#" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   WERI Map Series
