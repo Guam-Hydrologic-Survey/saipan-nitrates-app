@@ -9,7 +9,7 @@ export function roundDec(value) {
     let newValue;
 
     if (typeof value == "string") {
-        if (value.includes("--") || value.length == 0 || containsOnlyWhitespace(value) || value == null) {
+        if (value.includes("--") || value.length == 0 || containsOnlyWhitespace(value) || value == null || value == undefined) {
             return value;
         } else {
             newValue = Number(oldValue);
