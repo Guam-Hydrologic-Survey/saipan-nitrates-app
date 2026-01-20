@@ -109,13 +109,5 @@ Notes: Because of the reserve word, "export," this function is available to othe
 */
 export function getStats(statistics, element) {
     content = header(statistics) + basicStats(statistics) + additionalStats(statistics)
-
-    /*
-    TODO - clarification on basic stats and additional stats: 
-    - currently throws error because values for min, max, average, and number of data points are nonexistent in new JSON file properties
-    - new calculations (if any) or other methods to handle this information 
-    - handling of new set of properties (from latest excel data)
-    */
-    // content = header(statistics)
     document.getElementById(element).innerHTML = content;
 }
