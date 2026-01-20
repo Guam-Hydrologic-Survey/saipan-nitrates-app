@@ -68,7 +68,7 @@ function additionalStats(statistics) {
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <i>View Additional ${statistics.name} Statistics</i>
+                <i>View Additional Information for ${statistics.name}</i>
             </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#stats-additional">
@@ -108,7 +108,7 @@ Return: none
 Notes: Because of the reserve word, "export," this function is available to other components within the project. 
 */
 export function getStats(statistics, element) {
-    // content = header(statistics) + basicStats(statistics) + additionalStats(statistics)
+    content = header(statistics) + basicStats(statistics) + additionalStats(statistics)
 
     /*
     TODO - clarification on basic stats and additional stats: 
@@ -116,6 +116,6 @@ export function getStats(statistics, element) {
     - new calculations (if any) or other methods to handle this information 
     - handling of new set of properties (from latest excel data)
     */
-    content = header(statistics)
+    // content = header(statistics)
     document.getElementById(element).innerHTML = content;
 }
