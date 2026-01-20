@@ -46,12 +46,9 @@ export function Legend(element) {
     `
     <h6>Nitrate - ppm (mg/L) </h6>
     `;
-  
-    
-  
+
     const nitratePath = "./src/data/nitrateRange.json"
  
-  
     fetch(nitratePath)
         .then(response => response.json())
         .then(json =>  {
