@@ -74,13 +74,13 @@ export function About(element) {
           
           <div class="modal-footer about-btns">
             <a class="btn btn-success" title="MAppFx: Production Well Chloride - CNMI" href="https://guam-hydrologic-survey.github.io/saipan-chloride-app/" target="_blank" rel="noreferrer noopener" role="button">MAppFx: Production Well Chloride - CNMI</a>
-            <a class="btn btn-primary" title="Coming soon!" href="#" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
+            <a class="btn btn-primary" title="Coming soon!" href="https://guamhydrologicsurvey.uog.edu/2025/11/07/mappfx-saipan-cnmi-production-well-nitrates/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   WERI Map Series
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/mappfx/" title="MAppFx Library on GHS" target="_blank" rel="noreferrer noopener">MAppFx Library</a></li>
-                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/web-mapps/" title="Web MApps on GHS" target="_blank" rel="noreferrer noopener">Web MApps</a></li>
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/mappfx-library/" title="MAppFx Library on GHS" target="_blank" rel="noreferrer noopener">MAppFx Library</a></li>
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/web-mapps-library/" title="Web MApps on GHS" target="_blank" rel="noreferrer noopener">Web MApps</a></li>
                 </ul>
               </div>
           </div>
