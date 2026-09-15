@@ -40,14 +40,14 @@ function basicStats(statistics) {
                 <p class="stats-text">Average</p>
                 <p class="stats-text">Min</p>
                 <p class="stats-text">Max</p>
-                
+                <p class="stats-text">N-Data</p>
             </div>
             <!-- values for basic statistics --> 
             <div class="stats-col">
                 <p class="stats-num">${roundDec(statistics.average)}</p>
                 <p class="stats-num">${roundDec(statistics.min)}</p>
                 <p class="stats-num">${roundDec(statistics.max)}</p>
-               
+                <p class="stats-num">${roundDec(statistics.n_data)}</p>
             </div>
         </div>
     </div>
