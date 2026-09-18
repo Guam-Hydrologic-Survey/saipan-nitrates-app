@@ -79,7 +79,6 @@ function additionalStats(statistics) {
                             <p class="stats-text">Facility ID</p>
                             <p class="stats-text">Street Num ID</p>
                             <p class="stats-text">PWSS Name</p>
-                            <p class="stats-text">Source Type</p>
                             <p class="stats-text">Assigned Capacity</p>
                         </div>
                         <!-- values for additional statistics -->
@@ -87,7 +86,6 @@ function additionalStats(statistics) {
                             <p class="stats-num">${(statistics.facility_ID)}</p>
                             <p class="stats-num">${(statistics.streetNum_ID)}</p>              
                             <p class="stats-num">${(statistics.pwss_name)}</p>
-                            <p class="stats-num">${(statistics.source_type)}</p>
                             <p class="stats-num">${(statistics.assigned_capacity)}</p>
                         </div>
                     </div>
